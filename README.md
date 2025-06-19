@@ -60,7 +60,7 @@
 | Spectrogram | 시간에 따라 주파수 <br> 분포를 보여줌(STFT 기반) | 푸리에 변환의 시각화 |
 | MelSpectrogram | 인간이 실제 듣는 음높이 <br> 감각(멜 스케일)로 변환한 <br> 스펙트로그램 | ASR 기본 특성 |
 | Log-Mel Spectrogram | Mel Spectrogram에 로그 <br> 를 씌워 더 선형적인 분포 <br> 로 만듬 | Whisper 등 최신 모델 사용 |
-| MFCC (Mel-Frequency Cepstral Coefficients| 사람 음성 구조를 수학적 <br> 으로 요약한 대표 특성 | 전통적인 음성 인식에서 많이 <br> 사용|
+| MFCC (Mel-Frequency Cepstral Coefficients) | 사람 음성 구조를 수학적 <br> 으로 요약한 대표 특성 | 전통적인 음성 인식에서 많이 <br> 사용|
 | Raw waveform (wave2vec, HuBERT) | 전처리 없이 원시 오디오 <br> 자체를 특성으로 학습 | 최신 self-supervised 방식 |
 
   
