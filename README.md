@@ -21,7 +21,7 @@
 
 #### 1-2 푸리에 변환(Fourier transform)방법
 &nbsp;&nbsp; 1-2-1 🎤 예시 상황:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-어떤 사람이 "안녕하세요" 라고 1초 동안 말했을때
+&nbsp;&nbsp;&nbsp;&nbsp; - 어떤 사람이 "안녕하세요" 라고 1초 동안 말했을때
 ### 2. 특징 추출 (Feature Extraction)
 - 푸리에 변환(Fourier transform) 결과를 바탕으로 멜 주파수 켑스트럼 계수(MFCC) 나 멜 스펙트로그램 같은 음성 특징 벡터를 만든다.
 - 
