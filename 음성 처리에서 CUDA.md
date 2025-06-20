@@ -83,7 +83,7 @@ cp -r cuda/lib64/* /usr/local/cuda/lib64/
 Windows라면 C:\Program Files\NVIDIA GPU Computing Toolkit 밑에 복사
 #### ✅ (4) PyTorch 설치 (CUDA 지원)
 - PyTorch 공식: [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) 에서 설치
-- 예: CUDA 11.8 지원 버전 설치 -> 버전에 맞는 PyTorch를 모를 경우
+- 예: CUDA 11.8 지원 버전 설치 -> 버전에 맞는 PyTorch를 모를 경우 아래 실행
 ```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
