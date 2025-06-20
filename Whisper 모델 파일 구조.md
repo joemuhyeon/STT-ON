@@ -6,7 +6,7 @@ whisper/
 ├── __init__.py
 ├── audio.py          🔊 오디오 로딩 및 전처리 (mel spectrogram 변환 등)
 ├── decoding.py       🧠 디코딩 로직 (beam search, sampling 등)
-├── model.py          🏗️ Whisper 모델 구조 (Transformer 기반)
+├── model.py          🏗️ Whisper 모델 구조 (Transformer 기반)( model.safetensors(보안) 또는 pytorch_model.bin 중 하나)
 ├── tokenizer.py      🔤 BPE 토크나이저 처리
 ├── transcribe.py     📝 전체 음성 전사 파이프라인 구성
 ├── utils.py          🔧 기타 유틸 함수 모음
