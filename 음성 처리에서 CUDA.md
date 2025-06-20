@@ -16,6 +16,33 @@ CUDA는 NVIDIA GPU의 병렬 연산 능력을 활용하여 **음성 인식(STT),
 
 ---
 
+## 🧠 핵심 구조
+### 🖥️ CPU vs GPU
+| 구분    | CPU         | GPU (CUDA)            |
+| ----- | ----------- | --------------------- |
+| 코어 수  | 수 개 \~ 수십 개 | 수천 개                  |
+| 연산 방식 | 직렬 처리       | 병렬 처리                 |
+| 용도    | 일반 논리, OS   | 수치 계산, 딥러닝, 이미지/음성 처리 |
+
+---
+
+## ⚙️ CUDA 실행 흐름
+```lua
+CPU -----------------------> GPU
+ |                            |
+ | ① 데이터 준비               |
+ |                            |
+ | ② 커널 실행 명령 전달       |
+ |                            |
+ |                            ↓
+ |                  ③ GPU에서 병렬 연산
+ |                            |
+ | ④ 결과 다시 CPU로 복사      |
+ ↓                            |
+사용자에게 결과 보여줌 <--------|
+```
+---
+
 ## ⚙️ CUDA 사용 환경 설정 (PyTorch + 음성처리용)
 
 음성 인식(ASR), 음성 합성(TTS) 같은 모델들은 대체로 **딥러닝 기반**이며  
@@ -109,19 +136,21 @@ print(torch.cuda.get_device_name(0))  # → GPU 이름 출력
 ---
 ## 📦 딥러닝 기반 음성 처리에서 CUDA 사용 예
 
-### PyTorch 기반 음성 인식 예시 (Whisper)
-
+### PyTorch에서 CUDA 사용 예시
+PyTorch는 CUDA를 직접 쓰진 않지만 자동으로 활용합니다.
 ```python
 import torch
-from transformers import WhisperProcessor, WhisperForConditionalGeneration
 
-# GPU에서 모델 실행
+# GPU 사용 가능 여부 확인
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small").to(device)
-processor = WhisperProcessor.from_pretrained("openai/whisper-small")
+# 텐서 연산 GPU에서 수행
+a = torch.randn(1000, 1000, device=device)
+b = torch.randn(1000, 1000, device=device)
+c = torch.matmul(a, b)  # 이 연산은 CUDA에서 수행됨
 
-# 오디오 입력 전처리 및 인퍼런스
-input_features = processor(audio, return_tensors="pt").input_features.to(device)
-predicted_ids = model.generate(input_features)
+print(c)
+
 ```
+📌 이 연산은 내부적으로 cuBLAS, cuDNN, CUDA 커널을 사용하여 GPU에서 빠르게 실행됩니다.
+따로 CUDA 커널을 직접 작성하지 않아도 GPU를 사용하게 됩니다.
