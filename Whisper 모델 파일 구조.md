@@ -37,20 +37,35 @@ whisper/
 - Whisper 클래스 정의 (PyTorch 기반)
 - 모델 로딩: **`Whisper.load_model("small")`** ## small, medium, large 각각의 버전 존재
 
+### 🔤 tokenizer.py
+- Byte Pair Encoding(BPE) 기반 토크나이저 구현
+- **`get_tokenizer()`**, **`Tokenizer`** 클래스 포함
+- 언어별 특수 토큰 처리 포함
+➡️ 텍스트 ↔ 토큰 변환 담당
 
+### 📝 transcribe.py
+- 전체 음성 파일에 대한 전사 처리 함수: **`transcribe()`**
+- 다국어 처리, 자동 언어 감지, 자막 형식(SRT/VTT) 생성 기능 포함
+➡️ Whisper 파이프라인 핵심 진입점
 
+### 🌐 languages.py
+- ISO 언어 코드 ↔ 언어명 매핑
+- 언어 자동 인식 및 사용자 지정 처리 시 사용
 
+### 🔧 utils.py
+- 디코딩 과정에서 필요한 보조 함수들 제공
+- **`format_timestamp`**, **`compression_ratio`** 등
 
+### ⏱️ timing.py
+- 디코딩 시간 측정용
+- 벤치마크 측정에 사용
 
-
-
-
-
-
-
-
-
-
+### ▶️ cli.py
+- CLI로 whisper 실행 가능하게 해줌
+- 예 :
+  ```bash
+  python cli.py example.mp3 --model small
+  ```
 
 
 
