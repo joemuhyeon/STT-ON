@@ -18,7 +18,7 @@ whisper/
 
 ### 🔊 audio.py
 - load_audio(): ffmpeg를 이용해 오디오 파일 로딩
-# ffmpeg - 미디어 파일을 변환하거나 자르거나 합치는 도구
+#ffmpeg - 미디어 파일을 변환하거나 자르거나 합치는 도구
 - log_mel_spectrogram(): 음성을 mel 스펙트로그램으로 변환
 - 내부적으로 torchaudio, ffmpeg 사용
 ➡️ Whisper의 전처리 핵심
