@@ -59,7 +59,16 @@ CUDA는 NVIDIA GPU의 병렬 연산 능력을 활용하여 **음성 인식(STT),
 nvidia-smi
 # → GPU 이름, 드라이버 버전, 메모리 사용량 등이 출력되어야 함
 ```
----
+#### ✅ (2) CUDA Toolkit 설치
+- [https://developer.nvidia.com/cuda-downloads]( https://developer.nvidia.com/cuda-downloads) 에서 설치
+- PyTorch에서 사용하려는 CUDA 버전에 맞춰 설치 <br>
+  예: PyTorch 2.0 + CUDA 11.8 호환시 <br>
+  -> CUDA Toolkit 11.8 설치
+- 설치 확인: <br>
+```bash
+nvcc --version
+# CUDA compiler version 표시되어야 함
+```
 
 ## 📦 딥러닝 기반 음성 처리에서 CUDA 사용 예
 
