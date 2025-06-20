@@ -16,15 +16,48 @@ CUDA는 NVIDIA GPU의 병렬 연산 능력을 활용하여 **음성 인식(STT),
 
 ---
 
-## ⚙️ CUDA 사용 환경 설정
+## ⚙️ CUDA 사용 환경 설정 (PyTorch + 음성처리용)
 
-### 1. CUDA Toolkit 설치
-- [NVIDIA CUDA 다운로드](https://developer.nvidia.com/cuda-downloads)
-- Python에서 PyTorch 또는 TensorFlow 설치 시 자동으로 GPU 지원 포함 가능
+음성 인식(ASR), 음성 합성(TTS) 같은 모델들은 대체로 **딥러닝 기반**이며  
+**GPU(CUDA)** 없이는 **학습 및 추론 속도가 매우 느립니다**.
 
-### 2. 드라이버 및 라이브러리
-- NVIDIA 드라이버 + cuDNN 설치 권장
-- `nvidia-smi`로 GPU 인식 여부 확인
+이 섹션에서는 **CUDA를 제대로 활용하기 위한 환경 설정 방법**을 안내합니다.
+
+---
+
+### 🧩 1. 시스템 요구 사항
+
+| 구성 요소 | 최소 사양 | 권장 사양 |
+|------------|------------|------------|
+| GPU | NVIDIA GPU (예: GTX 1060 이상) | RTX 30xx 또는 A6000 등 |
+| 운영체제 | Windows 10 / Ubuntu 20.04 | Ubuntu 권장 |
+| RAM | 8GB 이상 | 16GB 이상 |
+| 저장공간 | 10GB 이상 여유 | SSD 권장 |
+
+---
+
+### 🧱 2. 필수 소프트웨어
+
+| 소프트웨어 | 설명 |
+|------------|------|
+| NVIDIA GPU Driver | 그래픽카드에 맞는 최신 드라이버 |
+| CUDA Toolkit | GPU에서 실행 가능한 연산을 위한 핵심 라이브러리 |
+| cuDNN | 딥러닝 연산 최적화를 위한 NVIDIA의 고성능 라이브러리 |
+| Python | 보통 3.8~3.10 버전 권장 |
+| PyTorch (GPU 버전) | CUDA 기반 연산을 자동으로 처리 |
+
+---
+
+### 🔧 3. 설치 절차 (Windows / Ubuntu)
+
+#### ✅ (1) NVIDIA 드라이버 설치
+
+- [https://www.nvidia.com/Download/index.aspx](https://www.nvidia.com/Download/index.aspx) 에서 설치
+- 설치 후 **`nvidia-smi`** 명령어로 정상 설치 확인
+
+```bash
+nvidia-smi
+# → GPU 이름, 드라이버 버전, 메모리 사용량 등이 출력되어야 함
 
 ---
 
