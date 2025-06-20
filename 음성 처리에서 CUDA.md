@@ -93,13 +93,20 @@ import torch
 print(torch.cuda.is_available())  # → True
 print(torch.cuda.get_device_name(0))  # → GPU 이름 출력
 ```
-#### 🔍 문제 해결 체크리스
+## 🔍 문제 해결 체크리스
 | 문제                                  | 점검 항목                              |
 | ----------------------------------- | ---------------------------------- |
 | `torch.cuda.is_available()` → False | 드라이버/Toolkit/버전 불일치, CUDA 경로 설정 오류 |
 | `nvcc --version` 안됨                 | CUDA Toolkit PATH 환경변수 등록 필요       |
 | GPU 인식 안 됨                          | `nvidia-smi` 확인, 물리적 문제 가능         |
 
+#### ✅ 요약
+- 1. GPU 드라이버 설치 → nvidia-smi 확인
+- 2. CUDA Toolkit + cuDNN 설치
+- 3. PyTorch GPU 버전 설치
+- 4. torch.cuda.is_available() → True 확인
+- 5. 그다음부터는 Whisper, ESPnet, Wav2Vec2 등 GPU로 자동 연산됨
+---
 ## 📦 딥러닝 기반 음성 처리에서 CUDA 사용 예
 
 ### PyTorch 기반 음성 인식 예시 (Whisper)
