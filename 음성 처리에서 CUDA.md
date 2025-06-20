@@ -58,7 +58,7 @@ CUDA는 NVIDIA GPU의 병렬 연산 능력을 활용하여 **음성 인식(STT),
 ```bash
 nvidia-smi
 # → GPU 이름, 드라이버 버전, 메모리 사용량 등이 출력되어야 함
-
+```
 ---
 
 ## 📦 딥러닝 기반 음성 처리에서 CUDA 사용 예
@@ -78,4 +78,4 @@ processor = WhisperProcessor.from_pretrained("openai/whisper-small")
 # 오디오 입력 전처리 및 인퍼런스
 input_features = processor(audio, return_tensors="pt").input_features.to(device)
 predicted_ids = model.generate(input_features)
-
+```
