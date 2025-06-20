@@ -31,3 +31,26 @@ whisper/
 - **`DecodingOptions`**, **`DecodingResult`**, **`decode()`** 함수 제공
 - GPU 사용가능(CUDA)
 ➡️ 음성 → 텍스트 생성의 핵심 모듈 
+
+### 🏗️ model.py
+- Transformer 인코더/디코더 구조 정의
+- Whisper 클래스 정의 (PyTorch 기반)
+- 모델 로딩: **`Whisper.load_model("small")`** ## small, medium, large 각각의 버전 존재
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
