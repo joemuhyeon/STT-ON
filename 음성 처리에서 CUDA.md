@@ -69,7 +69,21 @@ nvidia-smi
 nvcc --version
 # CUDA compiler version 표시되어야 함
 ```
-
+#### ✅ (3) cuDNN 설치
+- NVIDIA가 제공하는 딥러닝 연산 전용 고속 라이브러리.
+- 딥러닝 모델의 핵심 연산인 합성곱(Convolution), 풀링(Pooling), RNN, normalization 등을
+GPU에서 훨씬 빠르고 효율적으로 실행할 수 있게 해줌.
+- [https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn) 에서 설치
+- 설치는 CUDA 버전에 맞는 cuDNN 버전 다운로드 -> 압축해제 -> CUDA폴더에 덮어쓰기
+- 예:
+```bash
+cp -r cuda/include/* /usr/local/cuda/include/
+cp -r cuda/lib64/* /usr/local/cuda/lib64/
+```
+Windows라면 C:\Program Files\NVIDIA GPU Computing Toolkit 밑에 복사
+#### ✅ (4) Pytorch 설치 (CUDA 지원)
+- PyTorch 공식:
+- 
 ## 📦 딥러닝 기반 음성 처리에서 CUDA 사용 예
 
 ### PyTorch 기반 음성 인식 예시 (Whisper)
